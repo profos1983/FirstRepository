@@ -1,5 +1,24 @@
 ﻿const string MyName = "Jane";
-Console.WriteLine(MyName);
+WriteLine(MyName);
 
+WriteLine("\t Привет, мир!");
+WriteLine("\t Мне 27 года");
+WriteLine("\t My name is \nJane");
+WriteLine('\x23'); //Символ # в кодировке ASCII
+
+WriteLine(true);
+WriteLine(false);
+
+WriteLine(5);
+
+string name = "Alex";
+int age = 42;
+bool pet = false;
+double legSize = 43.5;
+
+WriteLine("My name is {0}", name);
+WriteLine("My age is {0}", age);
+WriteLine("Do I have a pet? {0}", pet);
+WriteLine("My shoe is {0}", legSize);
 
 Console.ReadLine();
