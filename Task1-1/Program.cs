@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿const string MyName = "Jane";
+Console.WriteLine(MyName);
+
+
+Console.ReadLine();
