@@ -81,10 +81,8 @@
     //return result;
     //}
 
-    static int[] GetArrayFromConsole() 
+    static int[] GetArrayFromConsole(int numberInArray = 5) 
     {
-        Console.Write("Введите количестов элементов в массиве простых чисел: ");
-        int numberInArray = int.Parse(Console.ReadLine());
 
         var array = new int[numberInArray];
         int number = 0;
@@ -102,7 +100,7 @@
     static int[] SortArray(int[] array) 
     {
         int temp = 0;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < array.Length; i++)
         {
             for (int j = i + 1; j < array.Length; j++)
             {
@@ -117,11 +115,26 @@
         return array;
     }
 
-    static void PrintArray(int[] array) 
+    static void ShowArray(int[] array, bool needSort = false) 
     {
+        if (needSort = true) 
+        {
+            SortArray(array);    
+        }
+
         foreach (int i in array) 
         {
             Console.Write(i + " ");
+        }
+    }
+
+    static void ShowColors(string userName, params string[] favcolors) 
+    {
+        Console.WriteLine(userName + ", Ваши любимые цвета: ");
+
+        foreach (string color in favcolors)
+        {
+            Console.WriteLine(color + " "); 
         }
     }
 }
