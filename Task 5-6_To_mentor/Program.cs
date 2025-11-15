@@ -13,7 +13,7 @@
 //Метод, который принимает кортеж из предыдущего шага и показывает на экран данные.
 //Вызов методов из метода Main.
 
-( string firstName, string lastName, int age, bool hasPet, int numberOfPet, string[] Pets, int numberOfFavourColors, string[] favourColors ) user;
+(string firstName, string lastName, int age, bool hasPet, int numberOfPet, string[] Pets, int numberOfFavourColors, string[] favourColors) user = new() ;
 
 Console.Write("Введите свое имя: ");
 user.lastName = Console.ReadLine();
@@ -23,39 +23,27 @@ user.lastName = Console.ReadLine();
 //do
 //{
 Console.Write("Введите свой возраст: ");
-string ageInString = Console.ReadLine();
+CheckDataAndSave(Console.ReadLine(), out user.age);
 
 
-if(int.TryParse(ageInString, out user.age))
+Console.Write("Есть ли у Вас питомцы? (Укажите Да/Нет) ");
+string hasPetAnswer = Console.ReadLine();
+if (hasPetAnswer == "Да") user.hasPet = true;
+else user.hasPet = false;
+
+if (user.hasPet == true)
 {
-    Console.WriteLine("Вы ввели корректное число.");
+    Console.Write("Укажите сколько у Вас питомцев: ");
+    CheckDataAndSave(Console.ReadLine(), out user.numberOfPet);
+    user.Pets = GetArray(user.numberOfPet);
 }
-else do
-{
-        Console.WriteLine("Вы ввели не верное число. Попробуйте еще раз.");
-        ageInString = Console.ReadLine();
-}
-while(int.TryParse(ageInString, out user.age) == false);
 
-
-    //}
-    //while (CorrectData(user.age) == false);
+Console.Write("Укажите, сколько у Вас любимых цветов: ");
+CheckDataAndSave(Console.ReadLine(), out user.numberOfFavourColors);
+user.favourColors = GetArray(user.numberOfFavourColors);
 
 
 
-
-
-
-//    Console.Write("Есть ли у Вас питомец? (Укажите Да/Нет) ");
-//string hasPetAnswer = Console.ReadLine();
-//if ( hasPetAnswer == "Да" ) user.hasPet = true;
-//else user.hasPet = false;
-
-//if (user.hasPet == true)
-//{
-//    Console.Write("Укажите сколько у Вас питомцев: ");
-//    us
-//}
-
+ShowUserData(user);
 
 
