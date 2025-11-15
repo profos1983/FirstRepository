@@ -3,9 +3,9 @@
     /// <summary>
     /// Метод для запроса любимого цвета и перекраски фона в него
     /// </summary>
-    static string ShowColor()
+    static string ShowColor(string userName, int userAge)
     {
-        Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+        Console.WriteLine("{0} {1} лет,\n напишите свой любимый цвет на английском с маленькой буквы", userName, userAge);
         var color = Console.ReadLine();
         DefoultColor();
 
@@ -50,35 +50,79 @@
          Console.ForegroundColor = ConsoleColor.Gray;
     }
 
-    static int[] GetArrayFromConsole()
+    //static int[] GetArrayFromConsole()
+    //{
+    //    var result = new int[5];
+    //    int temp = 0;
+
+    //    for (int i = 0; i < result.Length; i++)
+    //    {
+    //        Console.WriteLine("Введите элемент массива номер {0}", i + 1);
+    //        result[i] = int.Parse(Console.ReadLine());
+    //    }
+
+    //    for (int i = 0; i < 5; i++)
+    //    {
+    //        for (int j = i + 1; j < result.Length; j++) 
+    //        {
+    //            if (result[i] > result[j]) 
+    //            {
+    //                temp = result[j];
+    //                result[j] = result[i];
+    //                result[i] = temp;
+    //            }
+    //        }
+    //    }
+
+    //    for (int i = 0; i < result.Length; i++) 
+    //    {
+    //        Console.Write(result[i]);
+    //    } 
+    //return result;
+    //}
+
+    static int[] GetArrayFromConsole() 
     {
-        var result = new int[5];
-        int temp = 0;
- 
-        for (int i = 0; i < result.Length; i++)
+        Console.Write("Введите количестов элементов в массиве простых чисел: ");
+        int numberInArray = int.Parse(Console.ReadLine());
+
+        var array = new int[numberInArray];
+        int number = 0;
+
+        for (int i = 0; i < numberInArray; i++)
         {
-            Console.WriteLine("Введите элемент массива номер {0}", i + 1);
-            result[i] = int.Parse(Console.ReadLine());
+            number = i + 1;
+            Console.Write("Введите " + number + "число в массиве: ");
+            array[i] = int.Parse(Console.ReadLine());
         }
 
+        return array;
+    }
+
+    static int[] SortArray(int[] array) 
+    {
+        int temp = 0;
         for (int i = 0; i < 5; i++)
         {
-            for (int j = i + 1; j < result.Length; j++) 
+            for (int j = i + 1; j < array.Length; j++)
             {
-                if (result[i] > result[j]) 
+                if (array[i] > array[j])
                 {
-                    temp = result[j];
-                    result[j] = result[i];
-                    result[i] = temp;
+                    temp = array[j];
+                    array[j] = array[i];
+                    array[i] = temp;
                 }
             }
         }
+        return array;
+    }
 
-        for (int i = 0; i < result.Length; i++) 
+    static void PrintArray(int[] array) 
+    {
+        foreach (int i in array) 
         {
-            Console.Write(result[i]);
-        } 
-    return result;
+            Console.Write(i + " ");
+        }
     }
 }
 
