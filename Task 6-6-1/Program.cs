@@ -46,7 +46,7 @@
 
             set
             {
-                if (Email)
+                if (email.Length)
             }
 
         }
