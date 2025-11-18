@@ -1,4 +1,6 @@
-﻿class TrafficLight
+﻿using System.ComponentModel.DataAnnotations;
+
+class TrafficLight
 {
     private string color;
 
@@ -36,7 +38,27 @@
             }
         }
 
+        private string login;
+        public string Login
+        {
+            get
+            {
+                return login;
+            }
+
+            set
+            {
+                if (value.Length < 3)
+                {
+                    Console.WriteLine("Логин должен содержать не менее 3 символов!.");
+                }
+                else login = value;
+            }
+
+        }
+
         private string email;
+
         public string Email
         {
             get
@@ -46,9 +68,12 @@
 
             set
             {
-                if (email.Length)
+                if (value.Contains("@"))
+                {
+                    email = value;
+                }
+                else Console.WriteLine("Введите корректный адрес электронной почты!");
             }
-
         }
     }
 }
