@@ -1,8 +1,24 @@
-﻿class Obj
+﻿//Counter.IncreasingCounter = 1;
+//Console.WriteLine(Counter.IncreasingCounter);
+
+//Counter.IncreasingCounter = 5;
+//Console.WriteLine(Counter.IncreasingCounter);
+
+//Counter.IncreasingCounter ++;
+//Console.WriteLine(Counter.IncreasingCounter);
+
+int num1 = 3;
+int num2 = 58;
+
+Helper.Swap(ref num1, ref num2);
+
+Console.WriteLine("num1 = {0}, num2 = {1}",num1, num2);
+
+class Obj
 {
     public string Name;
     public string Description;
-    public string int MaxValue = 2000;
+    public static int MaxValue = 2000;
    
 }
 
@@ -14,10 +30,20 @@ class Counter
         get { return increasingCounter; } 
         set 
         {
-            if (increasingCounter > value)
+            if (value > increasingCounter)
             {
                 increasingCounter = value;
             }
         }
+    }
+}
+
+class Helper
+{
+    public static void Swap(ref int a, ref int b)
+    {
+        int c = b;
+        b = a;
+        a = c;
     }
 }
