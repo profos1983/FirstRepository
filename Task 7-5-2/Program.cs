@@ -16,8 +16,8 @@ Console.WriteLine("num1 = {0}, num2 = {1}",num1, num2);
 
 class Obj
 {
-    public string Name;
-    public string Description;
+    public string? Name;
+    public string? Description;
     public static int MaxValue = 2000;
    
 }
