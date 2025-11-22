@@ -2,6 +2,7 @@
 abstract class Delivery
 {
     public string Address;
+
 }
 
 class HomeDelivery : Delivery
