@@ -70,9 +70,6 @@ abstract class Person
 
     #region Методы
     public abstract void DisplayClassInfo();
-    //{
-    //    Console.WriteLine("Данные по учетной записи:\nИмя:{0}\nФамилия: {1}\nАдресс проживания: {2}", firstName, lastName, adress);
-    //}
     #endregion
 }
 
@@ -86,7 +83,7 @@ class Client : Person
         get { return Id; }
         set
         {
-            if (value.Length == 10 && value.Substring(0, 2) == "ID")
+            if (value.Length == 18 && value.Substring(0, 8) == "ClientID")
             {
                 Id = value;
             }
@@ -106,4 +103,88 @@ class Client : Person
         Console.WriteLine("ID клиента: {0}", Id);
     }
     #endregion
+}
+
+class Custumer: Person
+{
+    #region Свойства класса Сотридник
+    static double minimumWage = 20000;
+    protected string jobTitle;
+        public string JobTitle
+    {
+        get { return jobTitle; }
+        set { jobTitle = value; }
+    }
+    public override string Id
+    {
+        get { return Id; }
+        set
+        {
+            if (value.Length == 20 && value.Substring(0, 10) == "CustumerID")
+            {
+                Id = value;
+            }
+            else
+            {
+                Console.WriteLine("ID пользователя должно вводиться в виде: ID********, где * - любая цифра или буква");
+            }
+
+        }
+    }
+    #endregion
+
+    #region Методы класса Сотридник
+    public override void DisplayClassInfo()
+    {
+        Console.WriteLine("Данные по учетной записи:\nИмя:{0}\nФамилия: {1}\nАдресс проживания: {2}", firstName, lastName, adress);
+        Console.WriteLine("ID сотрудника: {0}", Id);
+        Console.WriteLine("Должность сотрудника: {0}", jobTitle);
+    }
+    #endregion
+
+}
+
+class Manager : Custumer
+{
+    #region Свойства класса Менеджер
+    string[] ListOfProject;
+    public override string Id
+    {
+        get { return Id; }
+        set
+        {
+            if (value.Length == 20 && value.Substring(0, 9) == "ManagerID")
+            {
+                Id = value;
+            }
+            else
+            {
+                Console.WriteLine("ID пользователя должно вводиться в виде: ID********, где * - любая цифра или буква");
+            }
+
+        }
+    }
+    #endregion
+
+    #region Конструкторы класса Менеджер
+    Manager (string firstName = "Unknown", string lastName = "Unknown")
+    {
+        this.firstName = lastName;
+        this.lastName = firstName;
+    }
+    #endregion
+
+    #region Методы класса Менеджер
+    public override void DisplayClassInfo()
+    {
+        Console.WriteLine("Данные по учетной записи:\nИмя:{0}\nФамилия: {1}\nАдресс проживания: {2}", firstName, lastName, adress);
+        Console.WriteLine("ID сотрудника: {0}", Id);
+        Console.WriteLine("Должность сотрудника: {0}", jobTitle);
+    }
+    #endregion
+}
+
+public class ClientСhoosingDeliveryMethod<TDelivery>
+{
+    public TDelivery Delivery { get; set; }
 }
