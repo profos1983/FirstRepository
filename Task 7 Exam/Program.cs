@@ -38,47 +38,72 @@ class Order<TDelivery, TStruct> where TDelivery : Delivery
 
 abstract class Person
 {
-    private string firstName;
+    #region Свойства
+    protected string firstName;
     public string FirstName
     {
         get { return firstName; }
         internal set { firstName = value; }
     }
 
-    private string lastName;
+    protected string lastName;
     public string LastName
     {
         get { return lastName; }
         internal set { lastName = value; }
     }
 
-    private string adress;
+    protected string adress;
     public string PersonAdress
     {
         get { return adress; }
         internal set { adress = value; }
     }
+
+    string id;
+    public virtual string Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
+    #endregion
+
+    #region Методы
+    public abstract void DisplayClassInfo();
+    //{
+    //    Console.WriteLine("Данные по учетной записи:\nИмя:{0}\nФамилия: {1}\nАдресс проживания: {2}", firstName, lastName, adress);
+    //}
+    #endregion
 }
 
 
-    class Client : Person
+class Client : Person
     {
-        private string clientId;
-        public string ClientId
+    #region Cвойства класса Клиент
+    private string id;
+    public override string Id
     {
-            get { return clientId; }
-            protected set
+        get { return Id; }
+        set
+        {
+            if (value.Length == 10 && value.Substring(0, 2) == "ID")
             {
-                if (value.Length == 10 && value.Substring(0, 2) == "ID")
-                {
-                    clientId = value;
-                }
-                else
-                {
-                    Console.WriteLine("ID пользователя должно вводиться в виде: ID********, где * - любая цифра или буква");
-                }
-
+                Id = value;
             }
-        }
+            else
+            {
+                Console.WriteLine("ID пользователя должно вводиться в виде: ID********, где * - любая цифра или буква");
+            }
 
+        }
     }
+    #endregion
+
+    #region Методы класса Клиент
+    public override void DisplayClassInfo()
+    {
+        Console.WriteLine("Данные по учетной записи:\nИмя:{0}\nФамилия: {1}\nАдресс проживания: {2}", firstName, lastName, adress);
+        Console.WriteLine("ID клиента: {0}", Id);
+    }
+    #endregion
+}

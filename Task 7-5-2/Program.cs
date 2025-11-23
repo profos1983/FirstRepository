@@ -10,7 +10,7 @@
 int num1 = 3;
 int num2 = 58;
 
-Helper.Swap(ref num1, ref num2);
+
 
 Console.WriteLine("num1 = {0}, num2 = {1}",num1, num2);
 
