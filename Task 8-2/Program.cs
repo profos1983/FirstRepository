@@ -1,4 +1,5 @@
-﻿DriveInfo[] drives = DriveInfo.GetDrives();
+﻿
+DriveInfo[] drives = DriveInfo.GetDrives();
 foreach (DriveInfo drive in drives)
 {
     Console.WriteLine($"Название диска:    {drive.Name}.");
@@ -12,3 +13,8 @@ foreach (DriveInfo drive in drives)
     }
     Console.WriteLine("");
 }
+
+string[] drives2 = DriveInfo.GetDrives()
+    .Select(drive => drive.Name)
+    .ToArray();
+Console.WriteLine("");
