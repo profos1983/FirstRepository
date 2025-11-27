@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿//Создайте на рабочем столе папку testFolder. Напишите метод, с помощью которого можно 
+//будет переместить её в корзину. 
+
+CreateFolder();
+
+RemoveFolder();
