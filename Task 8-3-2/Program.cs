@@ -1,2 +1,38 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Сделайте так, чтобы ваша программа из задания 8.3.1 при каждом запуске 
+// добавляла в свой исходный код комментарий о времени последнего запуска. 
+
+// Для этого самостоятельно изучите документацию класса FileInfo и найдите
+// метод, который позволяет добавлять строки в уже существующий файл. 
+
+string pathToFile = "C:\\Code\\Repose\\FirstRepository\\Task 8-3-2\\Program.cs";
+FileInfo fi = new FileInfo(pathToFile);
+
+if (fi.Exists)
+{
+
+    DateTime dt = DateTime.Now;
+    StreamWriter sw = fi.AppendText();
+    sw.WriteLine("//Произведен запуск программы в: " + dt);
+    sw.Flush();
+    sw.Close();
+
+
+    using (StreamReader sr = File.OpenText(pathToFile))
+    {
+        string str = "";
+        while ((str = sr.ReadLine()) != null)
+        {
+            Console.WriteLine(str);
+        }
+    }
+
+}
+else Console.WriteLine("файл не существует!");
+
+//Произведен запуск программы в: 28.11.2025 17:30:54
+//Произведен запуск программы в: 28.11.2025 17:31:08
+//Произведен запуск программы в: 28.11.2025 17:31:14
+//Произведен запуск программы в: 28.11.2025 17:32:37
+//Произведен запуск программы в: 28.11.2025 17:33:04
+//Произведен запуск программы в: 28.11.2025 20:55:31
+//Произведен запуск программы в: 28.11.2025 20:56:32
