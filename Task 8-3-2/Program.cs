@@ -4,17 +4,21 @@
 // Для этого самостоятельно изучите документацию класса FileInfo и найдите
 // метод, который позволяет добавлять строки в уже существующий файл. 
 
-string pathToFile = "C:\\Code\\Repose\\FirstRepository\\Task 8-3-2\\Program.cs";
+string pathToFile = "C:\\repos\\FirstRepository\\Task 8-3-2\\Program.cs";
 FileInfo fi = new FileInfo(pathToFile);
 
 if (fi.Exists)
 {
 
     DateTime dt = DateTime.Now;
-    StreamWriter sw = fi.AppendText();
-    sw.WriteLine("//Произведен запуск программы в: " + dt);
-    sw.Flush();
-    sw.Close();
+    using (StreamWriter sw = File.AppendText(pathToFile))
+    {
+        sw.WriteLine("//Произведен запуск программы в: " + dt);
+    }
+    //StreamWriter sw = fi.AppendText();
+    //sw.WriteLine("//Произведен запуск программы в: " + dt);
+    //sw.Flush();
+    //sw.Close();
 
 
     using (StreamReader sr = File.OpenText(pathToFile))
@@ -36,3 +40,5 @@ else Console.WriteLine("файл не существует!");
 //Произведен запуск программы в: 28.11.2025 17:33:04
 //Произведен запуск программы в: 28.11.2025 20:55:31
 //Произведен запуск программы в: 28.11.2025 20:56:32
+//Произведен запуск программы в: 29.11.2025 15:55:03
+//Произведен запуск программы в: 29.11.2025 16:23:53
