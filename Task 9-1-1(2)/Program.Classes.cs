@@ -16,4 +16,5 @@
             Console.WriteLine("Блок finally сработал!");
         }
     }   
+
 }
