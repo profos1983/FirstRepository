@@ -39,5 +39,21 @@ partial class Program
         {
             Array.Reverse(listOfPersons);
         }
+
+        public bool ListIsNull()
+        {
+            if (listOfPersons == null)
+            {
+                return true;
+            }
+            else return false;
+        }
+    }
+
+    public static void Cleanconsole() 
+    {
+        Console.WriteLine("Введете любой символ для возврата в меню");
+        Console.ReadKey();
+        Console.Clear();
     }
 }
