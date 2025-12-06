@@ -1,27 +1,15 @@
-﻿partial class Program
+﻿using System.Security.Cryptography;
+
+partial class Program
 {
-    public class MyFormatException: FormatException
-    {
-
-    }
-
-    public class MyNotImplementedException : NotImplementedException
-    {
-
-    }
-
     public class MyOverflowException : OverflowException
     {
+        public MyOverflowException(string massage = "Мое исключение: переполнение.")
+            : base(massage)
 
-    }
-
-    public class MyDriveNotFoundException : DriveNotFoundException
-    {
-
-    }
-
-    public class MyFileNotFoundException : FileNotFoundException
-    {
-
+        {
+            HelpLink = "ya.ru";
+            Data.Add("Дата создания исключения: ", DateTime.Now);
+        }
     }
 }

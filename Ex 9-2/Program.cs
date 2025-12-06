@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿ListOfPersons newList = new();
+newList.CreateList();
+newList.PrintList();
+
+newList.SortList();
+newList.PrintList();
+
+newList.ReverseSort();
+newList.PrintList();
