@@ -47,13 +47,24 @@ partial class Program
         {
             listOfPersons = new string[5];
             int num = 1;
-            Console.WriteLine("Введите массив из пяти фамилий пользователей\n(Не менее двух символов Русского алфавита(цифры и символы не допускаются):");
-
-            for (int i = 0; i < 5; i++)
+            Console.WriteLine("Введите массив из пяти фамилий пользователей\n(Не должно быть пустых значений):");
+            try
             {
-                Console.Write("Введите имя " + num + " пользователя: ");
-                listOfPersons[i] = Console.ReadLine();
-                num++;
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.Write("Введите имя " + num + " пользователя: ");
+                    num++;
+                    listOfPersons[i] = Console.ReadLine();
+
+                    if (string.IsNullOrWhiteSpace(listOfPersons[i]))
+                    {
+                        throw new MyArgumentException();
+                    }
+                }
+            }
+            catch (MyArgumentException MyEx)
+            {
+                Console.WriteLine(MyEx.Message);
             }
         }
 
