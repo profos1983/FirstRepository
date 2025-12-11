@@ -1,6 +1,9 @@
 ﻿var writer = new Writer();
 ((IWriter)writer).Write();
 
+IWriter writer2 = new Writer();
+writer2.Write();
+
 var worker = new Worker();
 ((IWorker)worker).Build();
 
