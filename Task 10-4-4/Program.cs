@@ -17,3 +17,5 @@
 //}
 //Реализуйте данный интерфейс в классе UserService, и продемонстрируйте 
 //контравариацию интерфейса в базовом классе Program.
+
+IUpdater < User > userService = new UserService();
